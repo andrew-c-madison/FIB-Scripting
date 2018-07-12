@@ -5,14 +5,16 @@ from PIL import Image
 
 
 # Function to convert pixel value to dwell time,
-# Minimum increment is 25 ns, Max increments is 4096 (12-bit)
+# Minimum increment is 25 ns, Max allowed value is 4096 (12-bit resolution)
 def px2dwell(p, inc):
     return p*inc # maps to range [0 ns, 6375 ns]
 
+# Generate beam position data
 def img2pos(size):
     x_pos, y_pos = np.meshgrid(np.arange(size[0]), np.arange(size[1]))
     return x_pos, y_pos
 
+# Rasterize beam path
 def rasterize(p):
     return np.array([sublst if (i+1)%2 else sublst[::-1] for i,sublst in enumerate(p)])
 
