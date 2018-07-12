@@ -14,11 +14,16 @@ Application parameters are as follows:
 -o: output path to stream file (optional with default value of output.str)
 
 If executed as a python script, typical usage is:
+
 python img2stream .\Patterns\staircase.png -p 100 -o .\StreamFiles\staircase.str
 
+
 When compiled into an executable, typical usage of the application is as follows:
+
 .\img2stream.exe -i .\Patterns\staircase.png -p 100 -o .\StreamFiles\staircase.str
+
 .\img2stream.exe -i .\Patterns\nist.png -p 10 -o .\StreamFiles\nist.str
+
 .\img2stream.exe -i .\Patterns\test.png -t c -s 7 -p 1 -o .\StreamFiles\test.str
 
 For Help:
