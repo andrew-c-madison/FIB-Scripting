@@ -29,7 +29,7 @@ parser.add_argument("-o", "--output", type=str, default="output.str", help="Outp
 args = parser.parse_args()
 
 
-# Set params
+# Set parameters
 image_path = args.image_path
 
 if args.head == "s":
@@ -48,6 +48,7 @@ else:
 if args.min_dwell:
     header += ",25ns"
 
+    
 passes = args.passes
 pad = args.frame
 output_path = args.output
@@ -59,23 +60,28 @@ img = Image.open(image_path).convert("RGB")
 img = img.resize(size, Image.ANTIALIAS)
 img_arr = np.asarray(img)
 
+
 # Convert B channel to dwell time
 # dwell = px2dwell(img_arr[:,:,2], 1.0)
 dwell = img_arr[:, :, 2]
 
+
 # Create position data, index is X[row][column]
 print "Processing dwell time and beam position"
 X, Y = img2pos(size)
+
 
 # Rasterize dwell and position, then flatten data
 dwell = rasterize(dwell)
 X = rasterize(X)
 Y = rasterize(Y)
 
-# Flatten data
+
+# Flatten image into 1D array
 D = dwell.flatten()
 X = X.flatten()
 Y = Y.flatten()
+
 
 # Remove zeros, pad the image and remove the edges
 idx_D = np.where(D>0)
@@ -84,12 +90,14 @@ idx_Y = np.where((Y>=pad) & (Y<=size[0]-pad-1))
 idx = np.intersect1d(idx_X, idx_Y)
 idx = np.intersect1d(idx, idx_D)
 
+
 # Structure data for writing to file
 D = D[idx]
 X = X[idx]
 Y = Y[idx]
 P = zip(D, X, Y)
 mill_pts = np.count_nonzero(D)
+
 
 # Write data to file
 print "Writing stream file"
