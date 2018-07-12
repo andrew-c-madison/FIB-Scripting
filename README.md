@@ -1,4 +1,6 @@
-The script, img2stream.py converts the blue channel of an R,G,B image into a stream files for automating FIB milling procedures with the FEI Helios NanoLab 660 Dual Beam Scanning Electron Microscope and Focused Ion Beam.
+# FIB-Sripting
+
+The script, img2stream.py converts the blue channel of an R,G,B image into a stream files for automating FIB milling procedures with the FEI Helios NanoLab 660 Dual Beam Scanning Electron Microscope and Focused Ion Beam. Python source available within master, executable available upon request.
 
 Python dependencies are: os, numpy, argparse, and pillow.
 
@@ -22,5 +24,3 @@ When compiled into an executable, typical usage of the application is as follows
 For Help:
 python img2stream.py -h
 .\img2stream.exe -h
-
-# FIB-Sripting
