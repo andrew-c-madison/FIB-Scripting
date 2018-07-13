@@ -19,12 +19,11 @@ If executed as a python script, typical usage is as follows. The following call 
 The following call converts the image, staircase_128_steps.png in the Patterns\Images subdirectory, to a stream file with 10 passes (-p 10) and dwell time increments of 100 ns (-d False).
 `python .\img2stream.py -i .\Patterns\Images\staircase_128_steps.png -p 10 -d False -o .\StreamFiles\staircase_128_steps.str`
 
-The following call converts a small test image, small_test_pattern.png in the Patterns\Images subdirectory, to a custom, single pass stream file (-t c) with a base size of 7x7 pixels (-s 7) and a blanked frame 1 pixel wide (-f 1).
+The following call converts a small test image, small_test_pattern.png in the Patterns\Images subdirectory, to a custom, single pass stream file (-t c) with a base size of 7x7 pixels (-s 7) and a blanked frame around the edges of the image 1 pixel wide (-f 1).
 `python img2stream.py -i .\Patterns\Images\small_test_pattern.png -t c -s 7 -f 1 -o .\StreamFiles\small_test.str`
 
 The following call converts a the NIST logo with a superimposed linear gradient, nist.jpg in the Patterns\Images subdirectory, into a stream file with 10 passes (-p 10)
 `python img2stream.py -i .\Patterns\Images\nist.jpg -p 10 -o .\StreamFiles\nist.str`
-
 
 When compiled into an executable, typical usage of the application is as follows:
 `.\img2stream.exe -i .\Patterns\staircase.png -p 100 -o .\StreamFiles\staircase.str`
