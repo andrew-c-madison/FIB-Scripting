@@ -26,7 +26,7 @@ The following call converts a the NIST logo with a superimposed linear gradient,
 `python img2stream.py -i .\Patterns\Images\nist.jpg -p 10 -o .\StreamFiles\nist.str`
 
 When compiled into an executable, typical usage of the application is as follows:
-`.\img2stream.exe -i .\Patterns\staircase.png -p 100 -o .\StreamFiles\staircase.str`
+`.\img2stream.exe -i .\Patterns\Images\staircase.png -p 100 -o .\StreamFiles\staircase.str`
 
 
 ### Help
