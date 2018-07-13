@@ -13,10 +13,10 @@ The script, **img2stream.py**, converts the blue channel of an R,G,B image into 
 
 ## Usage
 ### Examples
-If executed as a python script, typical usage is as follows. The following call converts the image, test_pattern_8x8.png in the Patterns\Images subdirectory, into a 4096x4096-sized stream file with 100 passes (-p 100) with dwell time increments of 25 ns.
+If executed as a python script, typical usage is as follows. The following call converts the image, test_pattern_8x8.png in the Patterns\Images subdirectory, into a 4096x4096-sized stream file with 100 passes (-p 100) and dwell time increments of 25 ns, and saves the stream file as specfied by the -o parameter, (-o .\StreamFiles\test_pattern_8x8.str). 
 `python img2stream.py -i .\Patterns\Images\test_pattern_8x8.png -p 100 -o .\StreamFiles\test_pattern_8x8.str`
 
-The following call converts the image, staircase_128_steps.png in the Patterns\Images subdirectory, to a stream file with 10 passes (-p 10) with dwell time increments of 100 ns (-d False).
+The following call converts the image, staircase_128_steps.png in the Patterns\Images subdirectory, to a stream file with 10 passes (-p 10) and dwell time increments of 100 ns (-d False).
 `python .\img2stream.py -i .\Patterns\Images\staircase_128_steps.png -p 10 -d False -o .\StreamFiles\staircase_128_steps.str`
 
 The following call converts a small test image, small_test_pattern.png in the Patterns\Images subdirectory, to a custom, single pass stream file (-t c) with a base size of 7x7 pixels (-s 7) and a blanked frame 1 pixel wide (-f 1).
