@@ -11,7 +11,8 @@ The script, **img2stream.py**, converts the blue channel of an R,G,B image into 
 - f: width of frame around input image (optional with default value of 48 pixels)
 - o: output path to stream file (optional with default value of output.str)
 
-## Example Usage
+## Usage
+### Examples
 If executed as a python script, typical usage is as follows. The following call converts the image, test_pattern_8x8.png in the Patterns\Images subdirectory, into a 4096x4096-sized stream file with 100 passes (-p 100) with dwell time increments of 25 ns.
 `python img2stream.py -i .\Patterns\Images\test_pattern_8x8.png -p 100 -o .\StreamFiles\test_pattern_8x8.str`
 
