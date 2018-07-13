@@ -1,10 +1,8 @@
 # FIB-Sripting
 
-The script, img2stream.py, converts the blue channel of an R,G,B image into a stream file for automating FIB milling procedures with the FEI Helios NanoLab 660 Dual Beam Scanning Electron Microscope and Focused Ion Beam. Python source available within master, executable available upon request. Example image patterns are included in the Patterns subdirectory.
+The script, img2stream.py, converts the blue channel of an R,G,B image into a stream file for automating FIB milling procedures with the FEI Helios NanoLab 660 Dual Beam Scanning Electron Microscope and Focused Ion Beam. Python source available within master, executable available upon request. Example image patterns are included in the Patterns subdirectory. Python dependencies are: os, numpy, argparse, and pillow.
 
-Python dependencies are: os, numpy, argparse, and pillow.
-
-Application parameters are as follows:
+**Application parameters are as follows:**
 - i: path to image to be converted (required)
 - t: type of stream file to create: s, s16, or c (optional with default value of s)
 - d: boolean variable to specify the usage of minimum dwell time of 25 ns (optional with default value of True)
@@ -37,6 +35,7 @@ or
 
 
 ## Pattern Generation:
-`python small_test_pattern.py`
-`python test_pattern.py -n 8`
-`python staircase.py -n 128`
+Several scripts are included in the Patterns subdirectory for algorithmically generating patterns. 
+- `python small_test_pattern.py` generates a small pattern for examining .str output
+- `python test_pattern.py -n 8` generates a 4096x4096 pixel patterned with an 8x8 array of graded tiles 
+- `python staircase.py -n 128` generates a linear gradient, or staircase, with 128 steps.
