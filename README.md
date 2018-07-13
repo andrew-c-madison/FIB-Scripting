@@ -5,13 +5,13 @@ The script, img2stream.py, converts the blue channel of an R,G,B image into a st
 Python dependencies are: os, numpy, argparse, and pillow.
 
 Application parameters are as follows:
--i: path to image to be converted (required)
--t: type of stream file to create: s, s16, or c (optional with default value of s)
--d: boolean variable to specify the usage of minimum dwell time of 25 ns (optional with default value of True)
--s: size of image (optional, active only if -t is set to c, and set to have default value of 4096x4096 pixels)
--p: number of passes (optional with default value of 1)
--f: width of frame around input image (optional with default value of 48 pixels)
--o: output path to stream file (optional with default value of output.str)
+- i: path to image to be converted (required)
+- t: type of stream file to create: s, s16, or c (optional with default value of s)
+- d: boolean variable to specify the usage of minimum dwell time of 25 ns (optional with default value of True)
+- s: size of image (optional, active only if -t is set to c, and set to have default value of 4096x4096 pixels)
+- p: number of passes (optional with default value of 1)
+- f: width of frame around input image (optional with default value of 48 pixels)
+- o: output path to stream file (optional with default value of output.str)
 
 ## Usage
 If executed as a python script, typical usage is:
