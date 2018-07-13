@@ -37,7 +37,7 @@ or
 `.\img2stream.exe -h`
 
 
-## Pattern Generation:
+## Pattern Generation
 Several scripts are included in the Patterns subdirectory for algorithmically generating patterns. 
 - `python small_test_pattern.py` generates a small pattern for examining .str output.
 - `python test_pattern.py -n 8` generates a 4096x4096 pixel patterned with an 8x8 array of graded tiles.
