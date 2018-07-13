@@ -14,7 +14,7 @@ args = parser.parse_args()
 n = args.num_steps
 size = (4096, 4096)
 v = 0
-dv = 255/n**2
+dv = 256/n**2
 
 
 # Create base image and tile
@@ -23,10 +23,10 @@ tile_size = tuple(i/n for i in size)
 tile = Image.new("RGB", tile_size)
 for j in range(n):
     for i in range(n):
-        v += dv
         arr = np.uint8(v*np.ones(tile_size))
         tile = Image.fromarray(np.dstack((arr, arr, arr)))
         img.paste(tile, (i*tile_size[1],j*tile_size[0]))
+        v += dv
 
 
 # Save image
