@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 
 
+# Define Functions
 # Function to convert pixel value to dwell time,
 # Minimum increment is 25 ns, Max allowed value is 4096 (12-bit resolution)
 def px2dwell(p, inc):
@@ -19,7 +20,7 @@ def rasterize(p):
     return np.array([sublst if (i+1)%2 else sublst[::-1] for i,sublst in enumerate(p)])
 
 
-# Read data from command line
+# Get input from command line
 parser = argparse.ArgumentParser(description="Converts an image into a stream file")
 parser.add_argument("-i", "--image_path", type=str, required=True, default=None, help="Path to image")
 parser.add_argument("-t", "--head", choices=["s","s16", "c"], default="s", help="Type of output pattern")
@@ -50,7 +51,6 @@ else:
 if args.min_dwell:
     header += ",25ns"
 
-    
 passes = args.passes
 pad = args.frame
 output_path = args.output
@@ -97,17 +97,14 @@ idx = np.intersect1d(idx, idx_D)
 D = D[idx]
 X = X[idx]
 Y = Y[idx]
-P = zip(D, X, Y)
+P = np.vstack((D, X, Y)).T
 mill_pts = np.count_nonzero(D)
 
 
 # Write data to file
 print "Writing stream file"
 with open(output_path, 'w') as f:
-    f.write(header)
-    f.write("\n" + str(passes))
-    f.write("\n" + str(mill_pts))
-    for i,p in enumerate(P):
-        f.write("\n{} {} {}".format(p[0], p[1], p[2]))
+    header += "\n{}\n{}".format(passes, mill_pts)
+    np.savetxt(output_path, P, fmt="%d", delimiter=" ", header=header, comments="")
 
 print "Stream file exported to {}".format(output_path)
